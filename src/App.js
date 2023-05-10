@@ -1,23 +1,26 @@
-import { useSelector } from 'react-redux';
+import { styled } from '@mui/system';
 import './App.css';
-import { Container, Typography, List } from '@mui/material';
-import Task from './components/Task';
+import { Container, Typography } from '@mui/material';
 import AddTodoForm from './components/AddTodoForm';
+import TaskList from './components/TaskList';
+
+
+const StyledContainer = styled(Container) ({
+  backgroundColor: "#cfe8fc",
+  height: '100vh',
+  paddingTop: '2rem',
+});
 
 function App() {
-  const tasks = useSelector(state => state.todos);
+
   return (
-    <Container maxWidth="sm">
+    <StyledContainer maxWidth="sm">
       <Typography variant="h2" align='center' gutterBottom>
         Lazy's ToDo List
       </Typography>
       <AddTodoForm />
-      <List>
-        {tasks.map((task, index) => (
-          <Task key={index} task={task} />
-        ))}   
-      </List>
-    </Container>
+      <TaskList />
+    </StyledContainer>
   );
 }
 
