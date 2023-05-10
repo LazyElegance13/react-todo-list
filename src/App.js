@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { Container, Typography, List } from '@mui/material';
+import Task from './components/Task';
+
 
 function App() {
+  const tasks = ['Learn React', 'Learn Linear Algebra', 'Learn Machine Learning'];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="sm">
+      <Typography variant="h2" align='center' gutterBottom>
+        Lazy's ToDo List
+      </Typography>
+      <List>
+        {tasks.map((task, index) => (
+          <Task key={index} task={task} />
+        ))}   
+      </List>
+    </Container>
   );
 }
 
